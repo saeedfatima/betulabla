@@ -1,0 +1,22 @@
+# Python files
+*.pyc
+__pycache__/
+
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# SQLite database
+*.sqlite3
+
+# Django stuff:
+*.log
+staticfiles/
+media/
+
+# VS Code settings
+.vscode/
+
+# Other unwanted files
+node_modules/

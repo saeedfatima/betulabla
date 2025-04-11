@@ -1,0 +1,92 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="about-hero" style="background: url('{% static 'images/about.jpeg' %}') no-repeat center center; background-size: cover; padding: 100px 0;">
+  <div class="container text-center text-black">
+    <h1 class="display-4 font-weight-bold">About Betul Abla Foundation</h1>
+    <p class="lead">Committed to Empowering Communities and Transforming Lives</p>
+  </div>
+</section>
+
+<!-- Who We Are Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <img src="{% static 'images/about-image.jpg' %}" alt="Who We Are" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <h2 class="mb-4">Who We Are</h2>
+        <p>
+          At Betul Abla Foundation, we are dedicated to creating lasting change in the lives of underprivileged communities.
+          Our organization supports orphans, develops borehole projects for access to clean water, and runs feeding initiatives
+          to ensure that every community member has a chance to thrive.
+        </p>
+        <p>
+          We are inspired by proven humanitarian models and are committed to transparency, accountability, and effective
+          interventions that empower individuals and transform communities.
+        </p>
+      </div>
+    </div>
+
+    <!-- Our Mission Section -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="mb-4">Our Mission</h2>
+        <p class="lead">
+          To empower communities by providing essential resources, support, and opportunities for sustainable development.
+          We focus on education, healthcare, and economic empowerment initiatives that pave the way for a brighter future.
+        </p>
+      </div>
+    </div>
+
+    <!-- Our History Section -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6 order-md-2">
+        <img src="{% static 'images/history.jpg' %}" alt="Our History" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h2 class="mb-4">Our History</h2>
+        <p>
+          Founded with a vision to transform lives, Betul Abla Foundation began as a small community initiative and has
+          grown into a reputable organization impacting thousands of lives across Kano. Our journey is marked by
+          dedication, collaboration, and a relentless pursuit of a better tomorrow.
+        </p>
+        <p>
+          Over the years, our programs have expanded to include water sanitation projects, educational support,
+          and community feeding projects that cater to the unique needs of each community.
+        </p>
+      </div>
+    </div>
+
+    <!-- Our Impact Section -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="mb-4">Our Impact</h2>
+        <p>
+          Through our dedicated initiatives, we have:
+        </p>
+        <ul class="list-unstyled">
+          <li>Supported over <strong>500 orphans</strong> with comprehensive care and education.</li>
+          <li>Developed numerous borehole projects ensuring clean water access in 44 local governments.</li>
+          <li>Conducted impactful feeding projects during Ramadan and Eid, benefitting hundreds of families.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Get Involved Section -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="mb-4">Get Involved</h2>
+        <p class="lead">
+          Join us in our mission to create lasting change. Whether through volunteering, donations, or advocacy,
+          your support can help us continue to uplift communities and transform lives.
+        </p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

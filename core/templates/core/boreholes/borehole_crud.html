@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center">Manage Boreholes</h2>
+  <a href="{% url 'add_borehole' %}" class="btn btn-success mb-3">Add Borehole</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Local Government</th>
+        <th>Address</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for borehole in boreholes %}
+      <tr>
+        <td>{{ borehole.borehole_id }}</td>
+        <td>{{ borehole.local_government.name }}</td>
+        <td>{{ borehole.Address }}</td>
+        <td>{{ borehole.status }}</td>
+        <td>
+          <a href="{% url 'update_borehole' borehole.id %}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{% url 'delete_borehole' borehole.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

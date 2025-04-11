@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Borehole Details</h2>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Borehole ID: {{ borehole.borehole_id }}</h5>
+      <p class="card-text"><strong>Government:</strong> {{ borehole.local_government.name }}</p>
+      <p class="card-text"><strong>Address:</strong> {{ borehole.Address }}</p>
+      <p class="card-text"><strong>Status:</strong> {{ borehole.status }}</p>
+      <p class="card-text"><strong>Installed Date:</strong> {{ borehole.installed_date }}</p>
+      <p class="card-text"><strong>Image:</strong> {% if borehole.image %}<img src="{{ borehole.image.url }}" alt="Borehole Image" class="img-fluid">{% else %}No image available{% endif %}</p>
+      <!-- Add more details as needed -->
+    </div>
+  </div>
+
+  <a href="{% url 'boreholes' %}" class="btn btn-secondary">Back to Borehole Projects</a>
+</div>
+{% endblock content %}

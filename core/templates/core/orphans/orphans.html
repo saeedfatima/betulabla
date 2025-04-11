@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">{{orphans_count}} Orphans Registered </h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Full Name</th>
+          <th>Date of Birth</th>
+          <th>Address</th>
+          <th>Contact</th>
+          <th>Next of Kin</th>
+          <th>Local Government</th>
+          <th>Date Registered</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for orphan in orphans %}
+        <tr>
+          <td>{{ orphan.full_name }}</td>
+          <td>{{ orphan.Dob }}</td>
+          <td>{{ orphan.address }}</td>
+          <td>{{ orphan.contact }}</td>
+          <td>{{ orphan.next_of_kin }}</td>
+          <td>{{ orphan.local_government }}</td>
+          <td>{{ orphan.registered_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

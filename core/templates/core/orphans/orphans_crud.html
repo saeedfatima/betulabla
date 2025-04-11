@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center">Manage Boreholes</h2>
+  <a href="{% url 'add_borehole' %}" class="btn btn-success mb-3">Add   Orphan</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>Date of birth</th>
+        <th>Address</th>
+        <th>contact </th>
+        <th>Next of kin</th>
+        <th>local government</th>
+        <th>Date registered</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for orphan in orphans %}
+        <tr>
+          <td>{{ orphan.full_name }}</td>
+          <td>{{ orphan.Dob }}</td>
+          <td>{{ orphan.address }}</td>
+          <td>{{ orphan.contact }}</td>
+          <td>{{ orphan.next_of_kin }}</td>
+          <td>{{ orphan.local_government }}</td>
+          <td>{{ orphan.registered_date }}</td>
+        </tr>
+          <a href="{% url 'update_borehole' borehole.id %}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{% url 'delete_borehole' borehole.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

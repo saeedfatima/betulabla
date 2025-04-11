@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center text-danger">Delete Borehole</h2>
+  <p>Are you sure you want to delete <strong>Borehole ID: {{ borehole.borehole_id }}</strong>?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'borehole_crud' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+/* Ensure the dropdown appears on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}

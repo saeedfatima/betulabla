@@ -1,0 +1,101 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#heroCarousel" data-slide-to="1"></li>
+    <li data-target="#heroCarousel" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/betool.jpeg' %}" class="d-block w-100" alt="Empowering Communities">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Empowering Communities</h2>
+        <p>Creating opportunities for a better future.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/betul.jpg' %}" class="d-block w-100" alt="Hope and Support">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Hope and Support</h2>
+        <p>Providing care for orphans and underprivileged communities.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/betool.jpg' %}" class="d-block w-100" alt="Community Development">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Community Development</h2>
+        <p>Innovative projects to uplift local communities.</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!-- About Section -->
+<section class="py-5 text-center">
+  <div class="container">
+    <h2 class="mb-4">Welcome to Betul Abla Foundation</h2>
+    <p class="lead">
+      Inspired by the design and mission of organizations like SSAFA, we are dedicated to providing support, care, and development opportunities to orphans and underprivileged communities. Our mission is to empower individuals and uplift communities for a better tomorrow.
+    </p>
+    <a href="{% url 'about' %}" class="btn btn-primary">Learn More About Us</a>
+  </div>
+</section>
+
+<!-- Services/Projects Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <!-- Orphans -->
+      <div class="col-md-4 text-center">
+        <img src="{% static 'images/orphans.jpg' %}" class="img-fluid rounded mb-3" alt="Support Orphans">
+        <h4>Support Orphans</h4>
+        <p>
+          We provide education, shelter, and care to ensure that every orphan has a chance to thrive.
+        </p>
+        <a href="{% url 'orphans' %}" class="btn btn-secondary btn-sm">View Details</a>
+      </div>
+      <!-- Boreholes -->
+      <div class="col-md-4 text-center">
+        <img src="{% static 'images/borehole.jpg' %}" class="img-fluid rounded mb-3" alt="Boreholes">
+        <h4>Develop Boreholes</h4>
+        <p>
+          Our projects ensure access to clean water by developing boreholes across local governments in Kano.
+        </p>
+        <a href="{% url 'boreholes' %}" class="btn btn-secondary btn-sm">View Details</a>
+      </div>
+      <!-- Feeding Projects -->
+      <div class="col-md-4 text-center">
+        <img src="{% static 'images/feeding_project.jpg' %}" class="img-fluid rounded mb-3" alt="Feeding Projects">
+        <h4>Feeding Projects</h4>
+        <p>
+          With special projects during Ramadan and Eid, we support the needy and poor through community feeding initiatives.
+        </p>
+        <a href="{% url 'feeding_projects' %}" class="btn btn-secondary btn-sm">View Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-5 text-center">
+  <div class="container">
+    <h3>Get Involved</h3>
+    <p class="lead">
+      Join us in making a difference. Whether through donations, volunteering, or advocacy, every action counts.
+    </p>
+    <a href="{% url 'contact' %}" class="btn btn-lg btn-primary">Contact Us</a>
+  </div>
+</section>
+{% endblock content %}
