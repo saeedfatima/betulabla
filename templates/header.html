@@ -1,125 +1,68 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Betul Abla Foundation</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    .header-top {
-      background-color: #003366;
-      padding: 10px 0;
-    }
-    .header-top .social-icons a {
-      color: #fff;
-      margin-left: 15px;
-      font-size: 1.2em;
-      transition: color 0.3s ease;
-    }
-    .header-top .social-icons a:hover {
-      color: #ffcc00;
-    }
-    .main-header {
-      background-color: #007bff;
-      padding: 20px 0;
-    }
-    .main-header h1 {
-      margin: 0;
-      font-size: 2em;
-      font-weight: bold;
-    }
-    .nav-item.dropdown:hover .dropdown-menu {
-      display: block;
-      margin-top: 0;
-    }
-    .time-display {
-      color: white;
-      font-size: 1em;
-      text-align: center;
-      margin-top: 5px;
-    }
-  </style>
-</head>
-<body>
-  <!-- Top Bar with Live Time and Social Icons -->
-  <div class="header-top">
-    <div class="container d-flex justify-content-between">
-      <div class="time-display" id="live-time"></div>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/YourPage" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.twitter.com/YourProfile" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/YourProfile" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/YourProfile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+<!-- Top Bar with Live Time and Social Icons -->
+<div class="header-top d-flex flex-column flex-md-row justify-content-between align-items-center py-2 px-3 bg-dark">
+  <div class="time-display text-white mb-2 mb-md-0" id="live-time"></div>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/YourPage" target="_blank" class="text-white mx-1"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-white mx-1"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-white mx-1"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-white mx-1"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</div>
+
+<!-- Responsive Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand font-weight-bold" href="{% url 'home' %}">Betul Abla</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" 
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav font-weight-bold navbar-light bg-primary ml-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" data-toggle="dropdown">Services</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'orphans' %}">Orphans</a>
+            <a class="dropdown-item" href="{% url 'boreholes' %}">Boreholes</a>
+            <a class="dropdown-item" href="{% url 'feeding_projects' %}">Feeding Projects</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" data-toggle="dropdown">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="{% url 'coordinator_login' %}">Coordinator</a>
+            <a class="dropdown-item" href="{% url 'head_login' %}">Head</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <!-- Main Header with Navigation -->
-  <header class="main-header text-white">
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
-        <h1>Betul Abla Foundation</h1>
-        <nav>
-          <ul class="nav">
-            <li class="nav-item"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Services</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="{% url 'orphans' %}">Orphans</a>
-                <a class="dropdown-item" href="{% url 'boreholes' %}">Boreholes</a>
-                <a class="dropdown-item" href="{% url 'feeding_projects' %}">Feeding Projects</a>
-              </div>
-            </li>
-            <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About Us</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact Us</a></li>
-
-            <!-- Login Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="loginDropdown" data-toggle="dropdown">
-                <i class="fas fa-sign-in-alt"></i> Login
-              </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a href="{% url 'coordinator_login' %}" class="btn btn-warning">Coordinator Login</a>
-                <a class="dropdown-item" href="{% url 'head_login' %}">Head Login</a>
-                <!-- add more roles here if needed -->
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <!-- Live Time Script -->
-  <script>
-    function updateTime() {
-      const timeZones = {
-        'Belgium': 'Europe/Brussels',
-        'Turkey': 'Europe/Istanbul',
-        'Nigeria': 'Africa/Lagos',
-        'Ivory Coast': 'Africa/Abidjan',
-        'Ghana': 'Africa/Accra'
-      };
-      let timeString = '';
-      for (const [country, tz] of Object.entries(timeZones)) {
-        let now = new Date().toLocaleString('en-US', {
-          timeZone: tz,
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: true
-        });
-        timeString += `<strong>${country}:</strong> ${now} | `;
-      }
-      document.getElementById('live-time').innerHTML = timeString.slice(0, -3);
+<!-- Live Time Script (keep this below header) -->
+<script>
+  function updateTime() {
+    const timeZones = {
+      'Nigeria': 'Africa/Lagos',
+      // add more as needed
+    };
+    let parts = [];
+    for (const [name, tz] of Object.entries(timeZones)) {
+      let now = new Date().toLocaleTimeString('en-US', {
+        timeZone: tz,
+        hour12: true
+      });
+      parts.push(`<strong>${name}:</strong> ${now}`);
     }
-    setInterval(updateTime, 1000);
-    updateTime();
-  </script>
-
-  <!-- Bootstrap JS + jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    document.getElementById('live-time').innerHTML = parts.join(' | ');
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+</script>

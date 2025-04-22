@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from django.contrib.auth.models import  User
 # Each borehole might be linked to a local government area
 class LocalGovernment(models.Model):
     name = models.CharField(max_length=100)
@@ -14,6 +13,7 @@ class Borehole(models.Model):
     Address = models.CharField(max_length=255)
     contact_number = models.CharField(max_length=20, null=True)
     installed_date = models.DateField(blank=True)
+    
     STATUS_CHOICE = (
         ('ACTIVE','Active'),
         ('IN-PROGRESS','In-progress'),
@@ -31,6 +31,7 @@ class Orphan(models.Model):
     contact = models.CharField(max_length=20, null=True)
     next_of_kin = models.CharField(max_length=20, null=True)
     registered_date = models.DateField(auto_now_add=True)
+    image = models.ImageField(upload_to='reports/', null=True, blank=True)
     
 
     def __str__(self):
@@ -50,10 +51,11 @@ class Report(models.Model):
 
 # A simple extension for staff - assuming coordinators are staff users
 class StaffProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='staffprofile')
     role = models.CharField(max_length=50, choices=(('coordinator', 'Coordinator'), ('head', 'Head')), default='coordinator')
     phone = models.CharField(max_length=20, null=True, blank=True)
+    country = models.CharField(max_length=50, default='Nigeria')
+    
     # additional details can be added
-
     def __str__(self):
         return self.user.username

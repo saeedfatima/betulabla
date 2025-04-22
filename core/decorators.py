@@ -1,7 +1,7 @@
 from functools import wraps
 from django.http import HttpResponseForbidden
 from django.core.exceptions import PermissionDenied
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 
 def coordinator_required(view_func):
     """
@@ -18,7 +18,7 @@ def coordinator_required(view_func):
             return HttpResponseForbidden("Coordinator profile not found.")
         
         # Check that the role is 'coordinator' (case-insensitive).
-        if str(profile.role).lower() == 'coordinator':
+        if str(profile.role) == 'coordinator':
             return view_func(request, *args, **kwargs)
         return HttpResponseForbidden("You are not authorized to view this page.")
     
@@ -41,5 +41,3 @@ def group_required(group_name, login_url='login', raise_exception=False):
         if not is_in_group and raise_exception:
             raise PermissionDenied
         return is_in_group
-
-    return user_passes_test(in_group, login_url=login_url)

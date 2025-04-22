@@ -1,5 +1,6 @@
+from dataclasses import Field
 from django import forms
-from .models import Borehole, Orphan
+from .models import Borehole, Orphan, Report
 
 class BoreholeForm(forms.ModelForm):
     class Meta:
@@ -17,4 +18,9 @@ class RoleLoginForm(forms.Form):
 class OrphanForm(forms.ModelForm):
     class Meta:
         model = Orphan
+        fields = '__all__'
+
+class ReportForm(forms.ModelForm):
+    class Meta:
+        model = Report
         fields = '__all__'

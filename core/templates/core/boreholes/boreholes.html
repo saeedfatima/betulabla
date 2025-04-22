@@ -2,43 +2,70 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-4">
   <h2 class="mb-4 text-center">{{ boreholes_count }} Borehole Projects</h2>
-  
+
   <!-- Filter Form -->
   <form method="get" class="mb-4">
-    <div class="row">
-      <div class="col-md-5">
-        <input type="text" name="local_government" class="form-control" placeholder="Filter by Local Government" value="{{ local_government_filter }}">
+    <div class="form-row">
+      <div class="col-12 col-md-5 mb-2">
+        <input
+          type="text"
+          name="local_government"
+          class="form-control"
+          placeholder="Filter by Local Government"
+          value="{{ local_government_filter }}"
+        >
       </div>
-      <div class="col-md-5">
-        <input type="text" name="borehole_id" class="form-control" placeholder="Filter by Borehole ID" value="{{ borehole_id_filter }}">
+      <div class="col-12 col-md-5 mb-2">
+        <input
+          type="text"
+          name="borehole_id"
+          class="form-control"
+          placeholder="Filter by Borehole ID"
+          value="{{ borehole_id_filter }}"
+        >
       </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-primary btn-block">Filter</button>
+      <div class="col-12 col-md-2 mb-2">
+        <button type="submit" class="btn btn-primary btn-block">
+          Filter
+        </button>
       </div>
     </div>
   </form>
-  
-  <!-- Borehole Projects Display -->
+
+  <!-- Borehole Cards -->
   <div class="row">
     {% for borehole in boreholes %}
-    <div class="col-md-4 mb-4">
+    <div class="col-12 col-sm-6 col-lg-4 mb-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">Borehole ID: {{ borehole.borehole_id }}</h5>
+          <h5 class="card-title">ID: {{ borehole.borehole_id }}</h5>
           <p class="card-text"><strong>Government:</strong> {{ borehole.local_government.name }}</p>
           <p class="card-text"><strong>Address:</strong> {{ borehole.Address }}</p>
           <p class="card-text"><strong>Status:</strong> {{ borehole.status }}</p>
-          <p class="card-text"><strong>Installed Date:</strong> {{ borehole.installed_date }}</p>
+          <p class="card-text"><strong>Installed:</strong> {{ borehole.installed_date }}</p>
         </div>
         <div class="card-footer">
-          <a href="{% url 'borehole_detail' borehole.id %}" class="btn btn-primary btn-block">View Details</a>
+          <a
+            href="{% url 'borehole_detail' borehole.id %}"
+            class="btn btn-primary btn-block btn-sm"
+          >
+            View Details
+          </a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
+
+  <div class="text-center mt-3">
+    {% if user.staffProfile.role == 'coordinator' %}
+    <a  href="{% url 'coordinator_dashboard' %}"
+      class="btn btn-secondary btn-block btn-md w-50 mx-auto">
+      Back to Dashboard
+    </a>
+    {% endif %}
+  </div>
 </div>
-<a href="dashboard/" class="btn btn-secondary">Back to Dashboard</a>
 {% endblock content %}

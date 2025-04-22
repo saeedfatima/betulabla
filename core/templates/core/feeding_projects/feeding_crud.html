@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center">Manage Feeding Projects</h2>
+  <p class="text-center">
+  <a href="{% url 'add_feeding_project' %}" class="btn btn-success mb-3">Add   Feeding Project</a>
+  <a href="{% url 'feeding_projects' %}" class="btn btn-danger mb-3">Delete Feeding Project</a>
+  <a href="{% url 'feeding_projects' %}" class="btn btn-warning mb-3">Update  Feeding Project</a>
+  </p>
+  <a href="{% url 'coordinator_dashboard' %}" class="btn btn-secondary">back to dashboard</a>
+
+ </div>
+{% endblock %}

@@ -11,10 +11,24 @@
       <p class="card-text"><strong>Address:</strong> {{ borehole.Address }}</p>
       <p class="card-text"><strong>Status:</strong> {{ borehole.status }}</p>
       <p class="card-text"><strong>Installed Date:</strong> {{ borehole.installed_date }}</p>
-      <p class="card-text"><strong>Image:</strong> {% if borehole.image %}<img src="{{ borehole.image.url }}" alt="Borehole Image" class="img-fluid">{% else %}No image available{% endif %}</p>
-      <!-- Add more details as needed -->
+      <p class="card-text">
+        <strong>Image:</strong>
+        {% if borehole.image %}
+          <img src="{{ borehole.image.url }}" alt="Borehole Image" class="img-fluid">
+        {% else %}
+          No image available
+        {% endif %}
+      </p>
     </div>
   </div>
+
+  <!-- Only Coordinators can edit/delete -->
+  {% if user.is_authenticated and user.staffprofile.role == 'coordinator' %}
+    <div class="mb-3">
+      <a href="{% url 'update_borehole' borehole.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'delete_borehole' borehole.pk %}" class="btn btn-danger">Delete Borehole</a>
+    </div>
+  {% endif %}
 
   <a href="{% url 'boreholes' %}" class="btn btn-secondary">Back to Borehole Projects</a>
 </div>

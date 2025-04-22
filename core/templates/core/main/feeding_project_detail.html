@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-2">{{ project.title }}</h2>
+  <p class="text-muted">Created on {{ project.created_at|date:"F d, Y" }}</p>
+
+  {% if project.image %}
+    <div class="mb-4">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid rounded">
+    </div>
+  {% endif %}
+
+  <p class="lead">{{ project.description }}</p>
+
+  {% if project.video_url %}
+    <div class="mb-4">
+      <h4>{{ project.video_title }}</h4>
+      <div class="embed-responsive embed-responsive-16by9 mb-2">
+        <iframe class="embed-responsive-item" src="{{ project.video_url }}" allowfullscreen></iframe>
+      </div>
+      {% if project.video_description %}
+        <p>{{ project.video_description }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {# Only show Edit/Delete to logged‑in users #}
+  {% if user.is_authenticated %}
+    <div class="mb-4">
+      <a href="{% url 'update_feeding_project' project.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'delete_feeding_project' project.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+  {% endif %}
+
+  <a href="{% url 'feeding_projects' %}" class="btn btn-secondary">Back to Feeding Projects</a>
+</div>
+{% endblock %}
