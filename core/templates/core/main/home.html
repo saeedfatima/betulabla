@@ -2,100 +2,183 @@
 {% load static %}
 
 {% block content %}
-<!-- Hero Carousel -->
-<div id="heroCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#heroCarousel" data-slide-to="1"></li>
-    <li data-target="#heroCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static 'images/betool.jpeg' %}" class="d-block w-100" alt="Empowering Communities">
-      <div class="carousel-caption d-none d-md-block">
-        <h2>Empowering Communities</h2>
-        <p>Creating opportunities for a better future.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/betul.jpeg' %}" class="d-block w-100" alt="Hope and Support">
-      <div class="carousel-caption d-none d-md-block">
-        <h2>Hope and Support</h2>
-        <p>Providing care for orphans and underprivileged communities.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/betool.jpg' %}" class="d-block w-100" alt="Community Development">
-      <div class="carousel-caption d-none d-md-block">
-        <h2>Community Development</h2>
-        <p>Innovative projects to uplift local communities.</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+<head>
+    <style>
+        /* Custom CSS */
+        .hero-section {
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            background-size: cover;
+            background-position: center;
+        }
 
-<!-- About Section -->
-<section class="py-5 text-center">
-  <div class="container">
-    <h2 class="mb-4">Welcome to Betul Abla Foundation</h2>
-    <p class="lead">
-      Inspired by the design and mission of organizations like SSAFA, we are dedicated to providing support, care, and development opportunities to orphans and underprivileged communities. Our mission is to empower individuals and uplift communities for a better tomorrow.
-    </p>
-    <a href="{% url 'about' %}" class="btn btn-primary">Learn More About Us</a>
-  </div>
-</section>
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-<!-- Services/Projects Section -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <!-- Orphans -->
-      <div class="col-md-4 text-center">
-        <img src="{% static 'images/betul.jpeg' %}" class="img-fluid rounded mb-3" alt="Support Orphans">
-        <h4>Support Orphans</h4>
-        <p>
-          We provide education, shelter, and care to ensure that every orphan has a chance to thrive.
-        </p>
-        <a href="{% url 'orphans' %}" class="btn btn-secondary btn-sm">View Details</a>
-      </div>
-      <!-- Boreholes -->
-      <div class="col-md-4 text-center">
-        <img src="{% static 'images/betul.jpeg' %}" class="img-fluid rounded mb-3" alt="Boreholes">
-        <h4>Develop Boreholes</h4>
-        <p>
-          Our projects ensure access to clean water by developing boreholes across local governments in Kano.
-        </p>
-        <a href="{% url 'boreholes' %}" class="btn btn-secondary btn-sm">View Details</a>
-      </div>
-      <!-- Feeding Projects -->
-      <div class="col-md-4 text-center">
-        <img src="{% static 'images/betool.jpeg' %}" class="img-fluid rounded mb-3" alt="Feeding Projects">
-        <h4>Feeding Projects</h4>
-        <p>
-          With special projects during Ramadan and Eid, we support the needy and poor through community feeding initiatives.
-        </p>
-        <a href="{% url 'feeding_projects' %}" class="btn btn-secondary btn-sm">View Details</a>
-      </div>
-    </div>
-  </div>
-</section>
+        .hero-headline {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-<!-- Call to Action Section -->
-<section class="py-5 text-center">
-  <div class="container">
-    <h3>Get Involved</h3>
-    <p class="lead">
-      Join us in making a difference. Whether through donations, volunteering, or advocacy, every action counts.
-    </p>
-    <a href="{% url 'contact' %}" class="btn btn-lg btn-primary">Contact Us</a>
-  </div>
-</section>
+        .hero-subheadline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .pillar-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .pillar {
+            margin-bottom: 30px;
+        }
+
+        .pillar i, .pillar img {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #007bff; /* Example primary color */
+        }
+
+        .impact-section {
+            padding: 40px 0;
+            background-color: #f8f9fa; /* Light grey background */
+        }
+
+        .impact-stat {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .impact-stat h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #28a745; /* Example success color */
+            margin-bottom: 10px;
+        }
+
+        .get-involved-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .get-involved-item {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary-custom {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+
+    <main>
+        <section class="hero-section" style="background-image: url('path/to/your/hero-image.jpg');">
+            <div class="hero-overlay">
+                <h1 class="hero-headline">Empowering Communities, Transforming Lives</h1>
+                <p class="hero-subheadline">Supporting orphans, developing borehole projects, and running feeding initiatives for a thriving community.</p>
+                <a href="#" class="btn btn-primary btn-lg btn-primary-custom">Donate Now</a>
+            </div>
+        </section>
+        <section class="pillar-section container">
+            <div class="row">
+                <div class="col-md-4 pillar">
+                    <i class="fas fa-heart fa-3x"></i> <h3>Supporting Orphans</h3>
+                    <p>Providing shelter, education, and care to orphaned children, giving them a chance for a brighter future.</p>
+                    <a href="#" class="btn btn-link">Learn More</a>
+                </div>
+                <div class="col-md-4 pillar">
+                    <i class="fas fa-tint fa-3x"></i> <h3>Providing Clean Water</h3>
+                    <p>Developing sustainable borehole projects to ensure access to clean and safe water for communities.</p>
+                    <a href="#" class="btn btn-link">Learn More</a>
+                </div>
+                <div class="col-md-4 pillar">
+                    <i class="fas fa-utensils fa-3x"></i> <h3>Nourishing Communities</h3>
+                    <p>Running feeding initiatives to combat hunger and ensure every community member has access to nutritious meals.</p>
+                    <a href="#" class="btn btn-link">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="impact-section container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 impact-stat">
+                        <h2>500+</h2>
+                        <p class="lead">Orphans Provided with Shelter and Education</p>
+                        <img src="path/to/your/orphans-image.jpg" alt="Orphans" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6 impact-stat">
+                        <h2>10</h2>
+                        <p class="lead">New Boreholes Built, Serving Thousands</p>
+                        <img src="{% static 'images/photo.jpg' %}" alt="Borehole" class="img-fluid rounded">
+                        
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6 impact-stat">
+                        <h2>Thousands</h2>
+                        <p class="lead">Meals Served Monthly to Combat Hunger</p>
+                        <img src="path/to/your/feeding-image.jpg" alt="Feeding Initiative" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"Before the borehole was built, we had to walk miles for water. Now, our children can go to school, and we have more time for our livelihoods."</p>
+                                <footer class="blockquote-footer">A Community Member <cite title="Source Title"> উপকৃতভোগী</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="get-involved-section container">
+            <h2>Get Involved</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-3 get-involved-item">
+                    <a href="#" class="btn btn-primary btn-lg btn-block btn-primary-custom">Donate Now</a>
+                    <p class="mt-2">Support our vital work and help us reach more communities.</p>
+                </div>
+                <div class="col-md-3 get-involved-item">
+                    <a href="#" class="btn btn-outline-primary btn-lg btn-block">Volunteer With Us</a>
+                    <p class="mt-2">Offer your time and skills to make a direct impact.</p>
+                </div>
+                <div class="col-md-3 get-involved-item">
+                    <a href="#" class="btn btn-outline-primary btn-lg btn-block">Partner With Us</a>
+                    <p class="mt-2">Explore opportunities for collaboration and shared impact.</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4>Follow Us</h4>
+                <a href="#" class="mr-3"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock content %}

@@ -1,8 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import  User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 # Each borehole might be linked to a local government area
 class LocalGovernment(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
@@ -20,6 +23,7 @@ class Borehole(models.Model):
         ('IN-ACTIVE','In-active')
     )
     status = models.CharField(max_length=50, choices=STATUS_CHOICE, default='Active')  # active/inactive/maintenance
+
     def __str__(self):
         return f"{self.borehole_id} - {self.Address}"
 
@@ -55,7 +59,14 @@ class StaffProfile(models.Model):
     role = models.CharField(max_length=50, choices=(('coordinator', 'Coordinator'), ('head', 'Head')), default='coordinator')
     phone = models.CharField(max_length=20, null=True, blank=True)
     country = models.CharField(max_length=50, default='Nigeria')
+    profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
     
     # additional details can be added
     def __str__(self):
         return self.user.username
+
+
+@receiver(post_save, sender=User)
+def ensure_staff_profile(sender, instance, created, **kwargs):
+    if created:
+        StaffProfile.objects.create(user=instance)

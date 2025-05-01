@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
+{% if page = 'login' %}
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Head Login</h2>
+  <h2 class="text-center mb-4"> Login</h2>
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form method="post" action="{% url 'head_login' %}">
+      <form method="post" action="{% url 'coordinator_login' %}">
         {% csrf_token %}
         <div class="form-group">
           <label for="id_username">Username</label>
@@ -21,4 +22,18 @@
     </div>
   </div>
 </div>
+{% else %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Signup</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="{% url 'coordinator_login' %}">
+        {% csrf_token %}
+        
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endif %}
 {% endblock content %}

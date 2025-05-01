@@ -1,68 +1,208 @@
 {% load static %}
-<!-- Top Bar with Live Time and Social Icons -->
-<div class="header-top d-flex flex-column flex-md-row justify-content-between align-items-center py-2 px-3 bg-dark">
-  <div class="time-display text-white mb-2 mb-md-0" id="live-time"></div>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/YourPage" target="_blank" class="text-white mx-1"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-white mx-1"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-white mx-1"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-white mx-1"><i class="fab fa-linkedin-in"></i></a>
-  </div>
+<style>
+    /* Enhanced Header Styles */
+    .header-top {
+        background-color: #343a40; /* Darker background */
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .header-top:hover {
+        background-color: #23272b;
+    }
+
+    .time-display {
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 0.8; }
+        100% { opacity: 1; }
+    }
+
+    .social-icons a {
+        opacity: 0.7;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .social-icons a:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+
+    .navbar {
+        background-color: #007bff !important; /* Vibrant primary color */
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .navbar:hover {
+        background-color: #0056b3 !important;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-brand:hover {
+        transform: scale(1.05);
+    }
+
+    .navbar-brand img {
+        height: 60px;
+        width: 60px;
+        object-fit: cover;
+        border: 3px solid #fff; /* Thicker border */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        animation: rotateLogo 5s linear infinite;
+    }
+
+    @keyframes rotateLogo {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .navbar-brand span {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #fff;
+        margin-left: 0.7rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-toggler {
+        border: none;
+        background-color: transparent;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff;
+        font-weight: 500;
+        padding: 0.8rem 1.2rem;
+        position: relative;
+    }
+
+    .navbar-nav .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-link:hover::before,
+    .navbar-nav .nav-link.active::before {
+        width: 100%;
+    }
+
+    .navbar-nav .dropdown-menu {
+        background-color: rgba(0, 0, 0, 0.9); /* Darker dropdown */
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-nav .dropdown-item {
+        color: #fff;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .navbar-nav .dropdown-item:hover {
+        background-color: #fff;
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+        border-top: 0.3em solid #fff;
+        border-right: 0.3em solid transparent;
+        border-left: 0.3em solid transparent;
+    }
+
+    .navbar-nav .dropdown-menu.dropdown-menu-end {
+        left: auto;
+        right: 0;
+    }
+
+    .fa-sign-in-alt {
+        margin-right: 0.5rem;
+    }
+</style>
+
+<div class="header-top d-flex flex-column flex-md-row justify-content-between align-items-center py-2 px-3">
+    <div class="time-display text-white mb-2 mb-md-0" id="live-time"></div>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/YourPage" target="_blank" class="text-white mx-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+        <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-white mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-white mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-white mx-2"><i class="fab fa-linkedin-in fa-lg"></i></a>
+    </div>
 </div>
 
-<!-- Responsive Navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand font-weight-bold" href="{% url 'home' %}">Betul Abla</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" 
-            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
 
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav font-weight-bold navbar-light bg-primary ml-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" data-toggle="dropdown">Services</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{% url 'orphans' %}">Orphans</a>
-            <a class="dropdown-item" href="{% url 'boreholes' %}">Boreholes</a>
-            <a class="dropdown-item" href="{% url 'feeding_projects' %}">Feeding Projects</a>
-          </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" data-toggle="dropdown">
-            <i class="fas fa-sign-in-alt"></i> Login
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{% url 'coordinator_login' %}">Coordinator</a>
-            <a class="dropdown-item" href="{% url 'head_login' %}">Head</a>
-          </div>
-        </li>
-      </ul>
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo"
+                 class="me-2 rounded-circle" style="height: 60px; width: 60px; object-fit: cover;">
+            <span class="fw-bold fs-4 text-white">Betul Abla</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'orphans' %}">Orphans</a></li>
+                        <li><a class="dropdown-item" href="{% url 'boreholes' %}">Boreholes</a></li>
+                        <li><a class="dropdown-item" href="{% url 'feeding_projects' %}">Feeding Projects</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'coordinator_dashboard' %}">My Account</a></li>
+            </ul>
+               {% else %}
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Coordinator</a></li>
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Head</a></li>
+                    </ul>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
-<!-- Live Time Script (keep this below header) -->
 <script>
-  function updateTime() {
-    const timeZones = {
-      'Nigeria': 'Africa/Lagos',
-      // add more as needed
-    };
-    let parts = [];
-    for (const [name, tz] of Object.entries(timeZones)) {
-      let now = new Date().toLocaleTimeString('en-US', {
-        timeZone: tz,
-        hour12: true
-      });
-      parts.push(`<strong>${name}:</strong> ${now}`);
+    function updateLiveTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+        document.getElementById('live-time').textContent = now.toLocaleDateString('en-US', options);
     }
-    document.getElementById('live-time').innerHTML = parts.join(' | ');
-  }
-  setInterval(updateTime, 1000);
-  updateTime();
+
+    setInterval(updateLiveTime, 1000);
 </script>
