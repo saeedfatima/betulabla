@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container mt-5">
   <h2 class="text-center text-danger">Delete Orphan</h2>
-  <p>Are you sure you want to delete: <strong>{{ orphan.full_name }}</strong>? {{ orphan.pk}}</p>
+  <p>Are you sure you want to delete: <strong>{{ obj.full_name }}</strong>? {{ obj.pk}}</p>
   <form method="POST">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Yes, Delete</button>

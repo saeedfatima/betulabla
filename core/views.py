@@ -65,7 +65,7 @@ def delete_orphan(request, pk):
     if request.method == 'POST':
         orphan.delete()
         return redirect('orphans')
-    return render(request, 'core/boreholes/delete.html', {'obj':orphan} )
+    return render(request, 'core/orphans/delete_orphan.html', {'obj':orphan} )
 
 # boreholes views and crud operations
 # Boreholes Listing & Detail
@@ -168,7 +168,6 @@ def RegisterUser(request):
 def userprofile(request):
     return render(request, 'dashboard/profile.html', {'user': request.user})
 
-from django.shortcuts import get_object_or_404
 
 @login_required
 def editUserProfile(request):

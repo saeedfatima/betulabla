@@ -56,7 +56,7 @@ class Report(models.Model):
 # A simple extension for staff - assuming coordinators are staff users
 class StaffProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='staffprofile')
-    role = models.CharField(max_length=50, choices=(('coordinator', 'Coordinator'), ('head', 'Head')), default='coordinator')
+    role = models.CharField(max_length=50, choices=(('coordinator', 'Coordinator'), ('regional coordinator','regional coordinator'),('head', 'Head')), default='coordinator')
     phone = models.CharField(max_length=20, null=True, blank=True)
     country = models.CharField(max_length=50, default='Nigeria')
     profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)

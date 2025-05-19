@@ -2,91 +2,231 @@
 {% load static %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="about-hero" style="background: url('{% static 'images/about.jpeg' %}') no-repeat center center; background-size: cover; padding: 100px 0;">
-  <div class="container text-center text-black">
-    <h1 class="display-4 font-weight-bold">About Betul Abla Foundation</h1>
-    <p class="lead">Committed to Empowering Communities and Transforming Lives</p>
+
+<!-- ABOUT HERO -->
+<section class="hero-section text-center text-white d-flex align-items-center" style="min-height: 60vh;">
+  <div class="container">
+    <h1 class="display-4 fw-bold">About Betul Abla Foundation</h1>
+    <p class="lead mt-3">Empowering communities through sustainable projects and compassionate care.</p>
   </div>
 </section>
 
-<!-- Who We Are Section -->
+
+
+<!-- OUR STORY -->
 <section class="py-5">
   <div class="container">
-    <div class="row align-items-center mb-5">
-      <div class="col-md-6">
-        <img src="{% static 'images/about-image.jpg' %}" alt="Who We Are" class="img-fluid rounded">
-      </div>
-      <div class="col-md-6">
-        <h2 class="mb-4">Who We Are</h2>
-        <p>
-          At Betul Abla Foundation, we are dedicated to creating lasting change in the lives of underprivileged communities.
-          Our organization supports orphans, develops borehole projects for access to clean water, and runs feeding initiatives
-          to ensure that every community member has a chance to thrive.
-        </p>
-        <p>
-          We are inspired by proven humanitarian models and are committed to transparency, accountability, and effective
-          interventions that empower individuals and transform communities.
-        </p>
-      </div>
-    </div>
+    <h2 class="text-center mb-4">Our Story</h2>
+    <p class="text-center mx-auto" style="max-width:800px;">
+      Founded in 2015, Betul Abla Foundation has touched thousands of lives through orphan support, clean water projects, and feeding initiatives. With unwavering dedication, we strive for enduring impact.
+    </p>
+  </div>
+</section>
 
-    <!-- Our Mission Section -->
-    <div class="row mb-5">
-      <div class="col-12 text-center">
-        <h2 class="mb-4">Our Mission</h2>
-        <p class="lead">
-          To empower communities by providing essential resources, support, and opportunities for sustainable development.
-          We focus on education, healthcare, and economic empowerment initiatives that pave the way for a brighter future.
-        </p>
-      </div>
-    </div>
-
-    <!-- Our History Section -->
-    <div class="row align-items-center mb-5">
-      <div class="col-md-6 order-md-2">
-        <img src="{% static 'images/history.jpg' %}" alt="Our History" class="img-fluid rounded">
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h2 class="mb-4">Our History</h2>
-        <p>
-          Founded with a vision to transform lives, Betul Abla Foundation began as a small community initiative and has
-          grown into a reputable organization impacting thousands of lives across Kano. Our journey is marked by
-          dedication, collaboration, and a relentless pursuit of a better tomorrow.
-        </p>
-        <p>
-          Over the years, our programs have expanded to include water sanitation projects, educational support,
-          and community feeding projects that cater to the unique needs of each community.
-        </p>
-      </div>
-    </div>
-
-    <!-- Our Impact Section -->
-    <div class="row mb-5">
-      <div class="col-12 text-center">
-        <h2 class="mb-4">Our Impact</h2>
-        <p>
-          Through our dedicated initiatives, we have:
-        </p>
-        <ul class="list-unstyled">
-          <li>Supported over <strong>500 orphans</strong> with comprehensive care and education.</li>
-          <li>Developed numerous borehole projects ensuring clean water access in 44 local governments.</li>
-          <li>Conducted impactful feeding projects during Ramadan and Eid, benefitting hundreds of families.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Get Involved Section -->
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="mb-4">Get Involved</h2>
-        <p class="lead">
-          Join us in our mission to create lasting change. Whether through volunteering, donations, or advocacy,
-          your support can help us continue to uplift communities and transform lives.
-        </p>
-        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Us</a>
-      </div>
+<!-- WATCH OUR JOURNEY VIDEO -->
+<section class="text-center my-5">
+  <div class="container">
+    <h3>Watch Our Journey</h3>
+    <div class="ratio ratio-16x9 mt-3">
+      <iframe class="ratio ratio-16x9 mt-3" 
+      src="https://www.youtube.com/watch?v=rniOfy0WS310"
+       title="Foundation Video" 
+       frameborder="0" 
+       allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
+
+
+
+<!-- CORE PILLARS -->
+<section class="pillar-section py-5 bg-light">
+  <div class="container">
+    <div class="row text-center">
+      {% for pillar in pillars %}
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="{{ pillar.icon_url }}" alt="{{ pillar.title }}" class="mb-3 img-fluid" style="height:4rem;">
+        <h5 class="fw-semibold">{{ pillar.title }}</h5>
+        <p class="small">{{ pillar.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- STAFF SHOWCASE -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Meet Our Team</h2>
+    <div class="row">
+
+      <!-- Member 1 -->
+      <div class="col-12 col-sm-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{% static 'images/team/alice.jpg' %}" class="card-img-top" alt="Alice Johnson" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">AMINU USMAN ABDULLAHO</h5>
+            <p class="text-primary small mb-1">Program Coordinator</p>
+            <p class="small flex-grow-1">Aminu brings over 8 years of humanitarian work experience, specializing in community engagement and project management.</p>
+            <details class="mt-2">
+              <summary class="small text-muted">Achievements & Projects</summary>
+              <ul class="small mt-1">
+                <li>Launched 5 new community boreholes</li>
+                <li>Oversaw a feeding program serving 2,000+ monthly</li>
+                <li>Published research on rural water sustainability</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="col-12 col-sm-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{% static 'images/team/john.jpg' %}" class="card-img-top" alt="John Mensah" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">FATMA BETUL KORKMAZ</h5>
+            <p class="text-primary small mb-1">Head of Foundation</p>
+            <p class="small flex-grow-1">betul manages all budgeting and fundraising efforts, ensuring financial transparency and sustainability.</p>
+            <details class="mt-2">
+              <summary class="small text-muted">Achievements & Projects</summary>
+              <ul class="small mt-1">
+                <li>Raised over $500K in donor funding</li>
+                <li>Implemented ERP for financial tracking</li>
+                <li>Co-authored annual impact reports</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="col-12 col-sm-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{% static 'images/team/mary.jpg' %}" class="card-img-top" alt="Mary Ade" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Mary Ade</h5>
+            <p class="text-primary small mb-1">Lead Social Worker</p>
+            <p class="small flex-grow-1">Mary has been on the front lines of our orphan programs, offering counseling, education support, and community reintegration.</p>
+            <details class="mt-2">
+              <summary class="small text-muted">Achievements & Projects</summary>
+              <ul class="small mt-1">
+                <li>Mentored 150+ at-risk youth</li>
+                <li>Developed curriculum for life skills training</li>
+                <li>Partnered with 10 local schools</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="col-12 col-sm-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{% static 'images/team/emeka.jpg' %}" class="card-img-top" alt="Emeka Obi" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Emeka Obi</h5>
+            <p class="text-primary small mb-1">Field Engineer</p>
+            <p class="small flex-grow-1">Emeka designs and supervises borehole drilling projects, ensuring every installation meets safety and quality standards.</p>
+            <details class="mt-2">
+              <summary class="small text-muted">Achievements & Projects</summary>
+              <ul class="small mt-1">
+                <li>Drilled 12 boreholes across 6 communities</li>
+                <li>Introduced solar-powered pumps</li>
+                <li>Trained 20 local technicians</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STATS -->
+<section class="impact-section bg-primary text-white py-5">
+  <div class="container text-center">
+    <div class="row">
+      {% for stat in stats %}
+      <div class="col-6 col-md-3 mb-4">
+        <h2 class="display-5 fw-bold">{{ stat.value }}</h2>
+        <p class="fw-light">{{ stat.label }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<div class="col-6 col-md-3 mb-4">
+  <i class="fas fa-hands-helping fa-2x mb-2"></i>
+  <h2 class="display-5 fw-bold">{{ stat.value }}</h2>
+  <p class="fw-light">{{ stat.label }}</p>
+</div>
+
+
+<!-- JOIN US -->
+<section class="get-involved-section text-center py-5">
+  <div class="container">
+    <h3>Join Our Cause</h3>
+    <div class="row justify-content-center mt-4">
+      {% for cta in ctas %}
+      <div class="col-12 col-md-4 mb-3">
+        <a href="{{ cta.link }}" class="btn btn-lg w-100 {{ cta.btn_class }}">{{ cta.text }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Responsiveness */
+  @media (max-width:576px) {
+    .hero-section .display-4 { font-size:2rem; }
+    .hero-section .lead      { font-size:1rem; }
+  }
+  .pillar-section img { transition: transform var(--bs-transition); }
+  .pillar-section img:hover { transform: scale(1.1); }
+  details summary { cursor: pointer; }
+
+  .pillar-section .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pillar-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  
+  .get-involved-section .btn {
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  .get-involved-section .btn:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+  
+
+  .card {
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }
+  .card img {
+    object-fit: cover;
+    height: 250px;
+  }
+  
+
+  .hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{% static "images/about-hero.jpg" %}');
+    background-size: cover;
+    background-position: center;
+  }
+  
+</style>
+
 {% endblock content %}

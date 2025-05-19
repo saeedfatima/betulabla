@@ -1,46 +1,126 @@
 {% load static %}
-<footer class="footer bg-dark text-white pt-5 pb-4">
+<footer class="custom-footer text-white pt-5 pb-4">
   <div class="container">
-    <div class="row">
-      <!-- About Section -->
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase mb-4 font-weight-bold">Betul Abla Foundation</h5>
-        <p>Empowering communities by providing care and support for orphans and underprivileged individuals. Our mission is to create opportunities for a brighter future.</p>
+    <div class="row gy-4">
+
+      <!--external styling-->       
+      <link rel="stylesheet" href="{% static 'css/bootsrap/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/bootsrap/font-awesome/5.15.4/css/all.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+      <!-- About -->
+      <div class="col-md-4">
+        <h5 class="footer-title">Betul Abla Foundation</h5>
+        <p class="footer-text">
+          Empowering communities through love, care, and action. We provide essential support to orphans and vulnerable individuals, fostering growth and hope.
+        </p>
       </div>
+
       <!-- Quick Links -->
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase mb-4 font-weight-bold">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
-          <li><a href="{% url 'orphans' %}" class="text-white">Orphans</a></li>
-          <li><a href="{% url 'boreholes' %}" class="text-white">Boreholes</a></li>
-          <li><a href="{% url 'feeding_projects' %}" class="text-white">Feeding Projects</a></li>
-          <li><a href="{% url 'about' %}" class="text-white">About Us</a></li>
-          <li><a href="{% url 'contact' %}" class="text-white">Contact Us</a></li>
+      <div class="col-md-4">
+        <h5 class="footer-title">Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="{% url 'home' %}"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+          <li><a href="{% url 'about' %}"><i class="fas fa-angle-right me-2"></i>About Us</a></li>
+          <li><a href="{% url 'contact' %}"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
+          <li><a href="{% url 'orphans' %}"><i class="fas fa-angle-right me-2"></i>Orphans</a></li>
+          <li><a href="{% url 'boreholes' %}"><i class="fas fa-angle-right me-2"></i>Boreholes</a></li>
+          <li><a href="{% url 'feeding_projects' %}"><i class="fas fa-angle-right me-2"></i>Feeding Projects</a></li>
         </ul>
       </div>
+
       <!-- Contact & Social -->
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase mb-4 font-weight-bold">Contact</h5>
-        <p><i class="fas fa-map-marker-alt mr-2"></i>719 Chiranchi Tudu, Kano, Nigeria</p>
-        <p><i class="fas fa-phone mr-2"></i>+234 816 091 7975</p>
-        <p><i class="fas fa-envelope mr-2"></i>info@betulabla.org</p>
-        <div class="mt-3">
-          <a href="https://www.facebook.com/YourPage" target="_blank" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+      <div class="col-md-4">
+        <h5 class="footer-title">Contact Us</h5>
+
+        <ul class="list-unstyled footer-contact">
+          <li><i class="fas fa-map-marker-alt me-2"></i>719 Chiranchi Tudu, Kano, Nigeria</li>
+          <li><i class="fas fa-phone me-2"></i>+234 816 091 7923</li>
+          <li><i class="fas fa-envelope me-2"></i>info@betulabla.org</li>
+        </ul>
+
+        <div class="social-icons mt-3">
+          <a href="https://www.facebook.com/betul_abla_foundation" class="me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/betul_abla_foundation" class="me-3"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/betul_abla_foundation" class="me-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.whatsapp.me/+2348150917975"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
-    <hr class="bg-secondary">
-    <div class="row align-items-center">
-      <div class="col-md-8 text-center text-md-left">
-        © 2025 Betul Abla Foundation. All rights reserved.
+
+    <hr class="mt-5 mb-4 border-light">
+
+    <div class="row">
+      <div class="col-md-6 text-center text-md-start">
+        <small>&copy; 2025 <strong>Betul Abla Foundation</strong>. All rights reserved.</small>
       </div>
-      <div class="col-md-4 text-center text-md-right">
-        Designed by the Betul Abla Team
+      <div class="col-md-6 text-center text-md-end">
+        <small>Designed by the <strong>Betul Abla Team</strong></small>
       </div>
     </div>
   </div>
 </footer>
+<style>
+  .custom-footer {
+    background: #111;
+    color: #ccc;
+  }
+  
+  .footer-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    position: relative;
+  }
+  
+  .footer-title::after {
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: #00bfff;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+  }
+  
+  .footer-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #bbb;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.6rem;
+  }
+  
+  .footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #00bfff;
+    padding-left: 5px;
+  }
+  
+  .footer-contact li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #bbb;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    color: #bbb;
+    font-size: 1.1rem;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #00bfff;
+    transform: scale(1.2);
+  }
+  
+</style>
