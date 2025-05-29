@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Betul Abla Organization</title>
+<<<<<<< HEAD
 
   <!-- Bootstrap CSS (local) -->
   <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -28,3 +29,56 @@
   <script src="{% static 'js/footer.js' %}"></script>
 </body>
 </html>
+=======
+
+  <!-- Bootstrap 4.5.2 CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+
+  <!-- Font Awesome CDN -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+integrity="sha512-papWmvf3cnV2PyAFLMJHgaqF4ulbBt28FqH2ZVRo9WZzOMF7BaX6rKy9jM1Uc4fN+9H7pbRwV+AdW2JQRhxMKw=="
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
+
+  <!-- Font Awesome CDN -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+integrity="sha512-papWmvf3cnV2PyAFLMJHgaqF4ulbBt28FqH2ZVRo9WZzOMF7BaX6rKy9jM1Uc4fN+9H7pbRwV+AdW2JQRhxMKw=="
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
+
+
+  <!-- Font Awesome 5.15.4 -->
+  <link rel="stylesheet" href="{% static 'css/font-awesome/5.15.4/css/all.min.css' %}">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  {% include 'header.html' %}
+
+  <main class="py-4">
+    <div class="container">
+      {% block content %}
+      
+      {% endblock %}
+    </div>
+  </main>
+  {% include 'footer.html' %}
+
+  <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  
+ 
+   <!-- Custom Scripts -->
+   <script src="{% static 'js/script.js' %}"></script>
+ </body>
+ </html>
+ 
+>>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f

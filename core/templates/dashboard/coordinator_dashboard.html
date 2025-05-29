@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container py-5">  
+  
+ <!-- Dashboard Header with Profile Dropdown -->
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <div>
+      <h1 class="display-5 fw-bold text-primary mb-0">Coordinator Dashboard</h1>
+      <p class="text-muted mb-0">Welcome back, {{ user.username }}</p>
+    </div>
+  </div>
+
+ <!-- dashboard managing crud operatons-->
+  <div>
+  {% include "dashboard/dashboard_crud.html" %}
+  </div>
+
+
+  <!-- Logout 
+  <div class="text-center mt-5">
+    <a href="{% url 'user_logout' %}" class="btn btn-danger px-4 py-2">Logout</a>
+  </div>
+-->
+</div>
+<!-- Include Bootstrap Icons CDN (only if not already included) -->
+
+<link rel="stylesheet" href="{% static 'css/dahboard.css' %}">
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}
+    

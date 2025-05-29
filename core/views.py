@@ -69,7 +69,14 @@ def delete_orphan(request, pk):
     if request.method == 'POST':
         orphan.delete()
         return redirect('orphans')
+<<<<<<< HEAD
     return render(request, 'core/orphans/delete_orphan.html', {'obj': orphan})
+=======
+    return render(request, 'core/orphans/delete_orphan.html', {'obj':orphan} )
+
+# boreholes views and crud operations
+# Boreholes Listing & Detail
+>>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f
 
 @login_required
 def orphans_crud(request):
@@ -174,8 +181,13 @@ def user_logout(request):
 # Profile Views
 @login_required
 def userprofile(request):
+<<<<<<< HEAD
     user = StaffProfile.objects.all()
     return render(request, 'dashboard/profile.html', {'user':request.user})
+=======
+    return render(request, 'dashboard/profile.html', {'user': request.user})
+
+>>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f
 
 @login_required
 def editUserProfile(request):

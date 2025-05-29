@@ -1,5 +1,6 @@
 {% load static %}
 
+<<<<<<< HEAD
 <!-- Bootstrap & Font Awesome (Local) -->
 <!-- Bootstrap CSS -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -107,3 +108,97 @@
     min-width: 180px;
   }
 </style>
+=======
+<!-- External Styles -->
+<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap/font-awesome/5.15.4/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<script src="{% static 'bootstsrap/bootstrap.min.js' %}"></script>
+
+<!-- Header Top -->
+<div class="header-top d-flex justify-content-between align-items-center px-3 py-1 bg-light">
+  <div class="time-display d-flex align-items-center">
+    <i class="fas fa-clock me-2"></i>
+    <span id="live-time"></span>
+  </div>
+  <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f mx-2"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter mx-2"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram mx-2"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in mx-2"></i></a>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="rounded-circle" style="height: 40px; width: 40px; object-fit: cover;">
+      <span class="ms-2 fw-bold">Betul Abla</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse text-white" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'orphans' %}"><i class="fas fa-child me-2"></i> Orphans</a></li>
+            <li><a class="dropdown-item" href="{% url 'boreholes' %}"><i class="fas fa-tint me-2"></i> Boreholes</a></li>
+            <li><a class="dropdown-item" href="{% url 'feeding_projects' %}"><i class="fas fa-utensils me-2"></i> Feeding Projects</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        {% endif %}
+
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+      </ul>
+
+      <!-- Right-end: Avatar or Login -->
+      <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+            <img src="{% static 'images/avatar.svg' %}" alt="Avatar" class="avatar rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'coordinator_dashboard' %}">My Account</a></li>
+            <li><a class="dropdown-item" href="{% url 'userprofile' %}">profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'login' %}">Coordinator</a></li>
+            <li><a class="dropdown-item" href="{% url 'login' %}">Head</a></li>
+          </ul>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Live Time Script -->
+
+
+<script>
+  function updateLiveTime() {
+    const now = new Date();
+    const opts = { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    document.getElementById('live-time').textContent = now.toLocaleString('en-US', opts);
+  }
+  setInterval(updateLiveTime, 1000);
+  updateLiveTime();
+</script>
+>>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f

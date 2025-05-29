@@ -46,9 +46,16 @@
                     <h2 class="display-4 fw-bold text-primary">250+</h2>
                     <p class="text-muted">Boreholes Installed</p>
                 </div>
+<<<<<<< HEAD
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h2 class="display-4 fw-bold text-primary">500+</h2>
                     <p class="text-muted">Orphans Supported</p>
+=======
+                <div class="col-md-4 pillar">
+                    <i class="fas fa-tint fa-3x"></i> <h3>Providing Clean Water</h3>
+                    <p>Developing sustainable borehole projects to ensure access to clean and safe water for communities.</p>
+                    <a href="{% url 'home' %}" class="btn btn-link">Learn More</a>
+>>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f
                 </div>
                 <div class="col-md-4">
                     <h2 class="display-4 fw-bold text-primary">44</h2>
@@ -94,6 +101,7 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white">
         <div class="container text-center">
@@ -104,4 +112,34 @@
     </section>
 
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+=======
+        <section class="get-involved-section container">
+            <h2>Get Involved</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-3 get-involved-item">
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg btn-block btn-primary-custom">Donate Now</a>
+                    <p class="mt-2">Support our vital work and help us reach more communities.</p>
+                </div>
+                <div class="col-md-3 get-involved-item">
+                    <a href="{% static 'home' %}" class="btn btn-outline-primary btn-lg btn-block">Volunteer With Us</a>
+                    <p class="mt-2">Offer your time and skills to make a direct impact.</p>
+                </div>
+                <div class="col-md-3 get-involved-item">
+                    <a href="{% static 'home' %}" class="btn btn-outline-primary btn-lg btn-block">Partner With Us</a>
+                    <p class="mt-2">Explore opportunities for collaboration and shared impact.</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4>Follow Us</h4>
+                <a href="{% url 'home' %}" class="mr-3"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="{% url 'home' %}" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="{% url 'home' %}+"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'js/a076d05399.js' %}"></script> <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="{% static 'js/@popperjs/core@2.5.3/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/4.5.2/js/bootstrap.min.js' %}"></script>
+>>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f
 {% endblock content %}

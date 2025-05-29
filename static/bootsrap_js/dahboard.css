@@ -1,0 +1,8 @@
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* removes jump effect */
+}
+.dropdown-toggle::after {
+  display: none; /* optional: remove default arrow */
+}
