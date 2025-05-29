@@ -12,17 +12,13 @@ from .forms import (
 
 # Home Page
 def home(request):
-   
-    return render(request, 'core/main/home.html'
-
-  )
+    return render(request, 'core/main/home.html')
 
 # About & Contact Pages
 def about(request):
     return render(request, 'core/main/about.html')
 
 def services(request):
-    
     return render(request, 'core/main/services.html')
 
 def contact(request):
@@ -69,18 +65,10 @@ def delete_orphan(request, pk):
     if request.method == 'POST':
         orphan.delete()
         return redirect('orphans')
-<<<<<<< HEAD
     return render(request, 'core/orphans/delete_orphan.html', {'obj': orphan})
-=======
-    return render(request, 'core/orphans/delete_orphan.html', {'obj':orphan} )
-
-# boreholes views and crud operations
-# Boreholes Listing & Detail
->>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f
 
 @login_required
 def orphans_crud(request):
-    
     return render(request, 'core/orphans/orphans_crud.html')
 
 # Borehole Views
@@ -103,8 +91,6 @@ def borehole_detail(request, pk):
     bh = get_object_or_404(Borehole, pk=pk)
     return render(request, 'core/boreholes/borehole_detail.html', {'borehole': bh})
 
-
-
 @login_required(login_url="login")
 def add_borehole(request):
     if request.method == 'POST':
@@ -118,7 +104,6 @@ def add_borehole(request):
     else:
         form = BoreholeForm()
     return render(request, 'core/boreholes/add_borehole.html', {'form': form})
-
 
 @login_required
 def update_borehole(request, pk):
@@ -181,13 +166,7 @@ def user_logout(request):
 # Profile Views
 @login_required
 def userprofile(request):
-<<<<<<< HEAD
-    user = StaffProfile.objects.all()
-    return render(request, 'dashboard/profile.html', {'user':request.user})
-=======
     return render(request, 'dashboard/profile.html', {'user': request.user})
-
->>>>>>> b6ae6cb992c8e7dc23c67ab71d4ca748cd90227f
 
 @login_required
 def editUserProfile(request):
@@ -253,15 +232,14 @@ def feeding_project_detail(request, pk):
 def feeding_projects_crud(request):
     return render(request, 'core/feeding_projects/feeding_crud.html')
 
-# Dashboards
+# Dashboard
 @login_required(login_url="login")
 def dashboard(request):
     borehole = Borehole.objects.all()
     orphan = Orphan.objects.all()
     return render(request, 'dashboard/dashboard.html', {
         'borehole': borehole,
-        'boreholes_count':borehole.count,
-        'orphans_count':orphan.count,
+        'boreholes_count': borehole.count(),
+        'orphans_count': orphan.count(),
         'orphan': orphan
     })
-
