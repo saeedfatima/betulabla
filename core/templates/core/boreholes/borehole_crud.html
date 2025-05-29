@@ -1,13 +1,33 @@
 {% extends "main.html" %}
 {% block content %}
-<div class="container mt-5">
-  <h2 class="text-center">Manage Borehole</h2>
-  <p class="text-center">
-  <a href="{% url 'add_borehole' %}" class="btn btn-success mb-3">Add   Borehole</a>
-  <a href="{% url 'boreholes' %}" class="btn btn-danger mb-3">Delete Borehole</a>
-  <a href="{% url 'boreholes' %}" class="btn btn-warning mb-3">Update   Borehole</a>
-  </p>
-  <a href="{% url 'coordinator_dashboard' %}" class="btn btn-secondary">back to dashboard</a>
-
- </div>
+<div class="container-fluid px-4">
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0"><i class="fas fa-water me-2"></i>Manage Borehole</h4>
+        </div>
+        <div class="card-body text-center">
+          <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-3">
+            <a href="{% url 'add_borehole' %}" class="btn btn-success px-4">
+              <i class="fas fa-plus-circle me-2"></i>Add Borehole
+            </a>
+            <a href="{% url 'boreholes' %}" class="btn btn-warning px-4">
+              <i class="fas fa-edit me-2"></i>Update Borehole
+            </a>
+            <a href="{% url 'boreholes' %}" class="btn btn-danger px-4">
+              <i class="fas fa-trash-alt me-2"></i>Delete Borehole
+            </a>
+            <a href="{% url 'boreholes' %}" class="btn btn-primary px-4">
+              <i class="fas fa-plus-circle me-2"></i>View Boreholes
+            </a>
+          </div>
+          <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">
+            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

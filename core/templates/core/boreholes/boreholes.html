@@ -42,10 +42,13 @@
     transform: translateY(-5px);
     transition: transform 0.3s ease;
   }
+  .badge {
+    font-size: 0.75rem;
+  }
 </style>
 
 <div class="container mt-4 main-container">
-  <!-- Sidebar: Local Governments -->
+  <!-- Sidebar -->
   <div class="sidebar">
     <h4>Browse Local Governments</h4>
     <hr>
@@ -53,7 +56,6 @@
       <input type="text" name="q" placeholder="Search boreholes..." value="{{ query }}" class="form-control mb-3">
       <button type="submit" class="btn btn-primary w-100 btn-sm">Search</button>
     </form>
-
     <br>
     <ul class="gov-list">
       <li><a href="{% url 'boreholes' %}" {% if not request.GET.q %}class="active"{% endif %}>All</a></li>
@@ -67,24 +69,43 @@
     </ul>
   </div>
 
-  <!-- Main Content: Borehole Projects -->
+  <!-- Main Content -->
   <div>
     <h2 class="mb-4 text-center">{{ boreholes_count }} Borehole Projects</h2>
-
     <div class="row">
       {% if boreholes %}
         {% for borehole in boreholes %}
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
           <div class="card h-100 shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">ID: {{ borehole.borehole_id }}</h5>
-              <p class="card-text"><strong>Government:</strong> {{ borehole.local_government.name }}</p>
-              <p class="card-text"><strong>Address:</strong> {{ borehole.Address }}</p>
-              <p class="card-text"><strong>Status:</strong> {{ borehole.status }}</p>
+              <h5 class="card-title">
+                <i class="bi bi-geo-alt-fill text-primary"></i> {{ borehole.borehole_id }}
+              </h5>
+              <p class="card-text"><strong>Location:</strong> {{ borehole.location }}</p>
+              <p class="card-text"><strong>Local Gov.:</strong> {{ borehole.local_government.name }}</p>
+              <p class="card-text"><strong>Status:</strong>
+                {% if borehole.status == "Operational" %}
+                  <span class="badge bg-success">{{ borehole.status }}</span>
+                {% elif borehole.status == "Needs Repair" %}
+                  <span class="badge bg-warning text-dark">{{ borehole.status }}</span>
+                {% elif borehole.status == "Inactive" %}
+                  <span class="badge bg-secondary">{{ borehole.status }}</span>
+                {% else %}
+                  <span class="badge bg-info">{{ borehole.status }}</span>
+                {% endif %}
+              </p>
+              <p class="card-text"><strong>Water Quality:</strong>
+                <span class="badge bg-info">{{ borehole.water_quality }}</span>
+              </p>
+              <p class="card-text"><strong>Depth:</strong> {{ borehole.Depth }} meters</p>
+              <p class="card-text"><strong>Contact:</strong> {{ borehole.contact_number }}</p>
+              <p class="card-text"><strong>Funded by:</strong> {{ borehole.funded_by }}</p>
               <p class="card-text"><strong>Installed:</strong> {{ borehole.installed_date }}</p>
+              <p class="card-text"><strong>Last Serviced:</strong> {{ borehole.Last_Serviced|timesince }}</p>
+              <p class="card-text"><strong>Description:</strong> {{ borehole.description|truncatewords:20 }}</p>
             </div>
-            <div class="card-footer bg-transparent">
-              <a href="{% url 'borehole_detail' borehole.id %}" class="btn btn-outline-primary w-100 btn-sm">
+            <div class="card-footer bg-transparent border-0">
+              <a href="{% url 'borehole_detail' borehole.pk %}" class="btn btn-outline-primary w-100 btn-sm">
                 View Details
               </a>
             </div>
@@ -100,7 +121,7 @@
 
     <div class="text-center mt-4">
       {% if user.is_authenticated %}
-      <a href="{% url 'coordinator_dashboard' %}" class="btn btn-secondary w-50">
+      <a href="{% url 'dashboard' %}" class="btn btn-secondary w-50">
         Back to Dashboard
       </a>
       {% endif %}

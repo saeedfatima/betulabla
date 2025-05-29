@@ -2,68 +2,76 @@
 {% load static %}
 
 {% block content %}
+
+<!-- Load Font Awesome if not already loaded -->
+<link rel="stylesheet" href="{% static "fontawesome/css/all.min.css" %}">
+
 <!-- Hero Section -->
-<section class="contact-hero" style="background: url('{% static 'images/contact.jpeg' %}') no-repeat center center; background-size: cover; padding: 100px 0;">
-  <div class="container text-center text-white">
-    <h1 class="display-4 font-weight-bold">Contact Us</h1>
-    <p class="lead">We’re here to help and answer any questions you may have.</p>
+<section class="contact-hero text-white d-flex align-items-center justify-content-center" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{% static 'images/contact.jpeg' %}') no-repeat center center / cover; padding: 100px 0;">
+  <div class="text-center">
+    <h1 class="display-4 fw-bold">Contact Us</h1>
+    <p class="lead mt-2">We’re here to help and answer any questions you may have.</p>
   </div>
 </section>
 
 <!-- Contact Section -->
-<section class="py-5">
+<section class="py-5 bg-light">
   <div class="container">
-    <div class="row">
-      <!-- Contact Information -->
-      <div class="col-md-5 mb-4">
-        <h2>Get In Touch</h2>
-        <p>Please feel free to contact us for any inquiries or support. We value your feedback and are ready to assist you.</p>
+    <div class="row g-5">
+      <!-- Contact Info -->
+      <div class="col-md-5">
+        <h2 class="mb-4">Get In Touch</h2>
+        <p class="mb-4">Please feel free to contact us for any inquiries or support. We value your feedback and are ready to assist you.</p>
         <ul class="list-unstyled">
-          <li class="mb-2">
-            <i class="fas fa-map-marker-alt mr-2"></i>
-            719 chiranchi tudu, Kano, Nigeria
+          <li class="mb-3">
+            <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+            719 Chiranchi Tudu, Kano, Nigeria
           </li>
-          <li class="mb-2">
-            <i class="fas fa-phone mr-2"></i>
-            <a href="phone_number">+234 8160917975</a>
+          <li class="mb-3">
+            <i class="fas fa-phone me-2 text-primary"></i>
+            <a href="tel:+2348160917975" class="text-dark text-decoration-none">+234 816 091 7975</a>
           </li>
-          <li class="mb-2">
-            <i class="fas fa-envelope mr-2"></i>
-            info@betulabla.org
+          <li class="mb-3">
+            <i class="fas fa-envelope me-2 text-primary"></i>
+            <a href="mailto:info@betulabla.org" class="text-dark text-decoration-none">info@betulabla.org</a>
           </li>
         </ul>
+
+        <!-- Social Icons -->
         <div class="mt-4">
-          <a href="https://www.facebook.com/YourPage" target="_blank" class="text-dark mr-3"><i class="fab fa-facebook-f fa-lg"></i></a>
-          <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-dark mr-3"><i class="fab fa-twitter fa-lg"></i></a>
-          <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-dark mr-3"><i class="fab fa-instagram fa-lg"></i></a>
-          <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-dark"><i class="fab fa-linkedin-in fa-lg"></i></a>
+          <a href="https://www.facebook.com/YourPage" target="_blank" class="text-primary me-3"><i class="fab fa-facebook fa-xl"></i></a>
+          <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-info me-3"><i class="fab fa-twitter fa-xl"></i></a>
+          <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-danger me-3"><i class="fab fa-instagram fa-xl"></i></a>
+          <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-secondary"><i class="fab fa-linkedin fa-xl"></i></a>
         </div>
       </div>
+
       <!-- Contact Form -->
       <div class="col-md-7">
-        <h2>Send Us a Message</h2>
-        <form method="post" action="{% url 'contact' %}">
+        <h2 class="mb-4">Send Us a Message</h2>
+        <form method="post" action="{% url 'contact' %}" class="bg-white p-4 shadow rounded">
           {% csrf_token %}
-          <div class="form-group">
-            <label for="id_name">Your Name</label>
+          <div class="mb-3">
+            <label for="id_name" class="form-label">Your Name</label>
             <input type="text" class="form-control" id="id_name" name="name" placeholder="Enter your name" required>
           </div>
-          <div class="form-group">
-            <label for="id_email">Email Address</label>
+          <div class="mb-3">
+            <label for="id_email" class="form-label">Email Address</label>
             <input type="email" class="form-control" id="id_email" name="email" placeholder="Enter your email" required>
           </div>
-          <div class="form-group">
-            <label for="id_subject">Subject</label>
+          <div class="mb-3">
+            <label for="id_subject" class="form-label">Subject</label>
             <input type="text" class="form-control" id="id_subject" name="subject" placeholder="Subject" required>
           </div>
-          <div class="form-group">
-            <label for="id_message">Message</label>
-            <textarea class="form-control" id="id_message" name="message" rows="6" placeholder="Your message..." required></textarea>
+          <div class="mb-4">
+            <label for="id_message" class="form-label">Message</label>
+            <textarea class="form-control" id="id_message" name="message" rows="5" placeholder="Your message..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
         </form>
       </div>
     </div>
   </div>
 </section>
+
 {% endblock content %}

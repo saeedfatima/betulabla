@@ -1,13 +1,13 @@
-from dataclasses import Field
 from django import forms
 from django.contrib.auth.models import User
-from .models import Borehole, Orphan, Report,StaffProfile
+from .models import Borehole, Orphan, Report, StaffProfile
 
 class BoreholeForm(forms.ModelForm):
     class Meta:
         model = Borehole
-        fields = ['borehole_id', 'local_government', 'Address', 'status', 'installed_date'] 
-
+        fields = '__all__'
+         
+    
 class RoleLoginForm(forms.Form):
     username = forms.CharField(
         max_length=150,
@@ -35,7 +35,7 @@ class UserUpdateForm(forms.ModelForm):
 class StaffProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = StaffProfile
-        fields = ['role', 'phone', 'country', 'profile_image']
+        fields = '__all__'
         widgets = {
             'role': forms.Select(attrs={'class': 'form-select'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. +2348012345678'}),

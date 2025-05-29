@@ -1,46 +1,71 @@
 {% load static %}
-<footer class="footer bg-dark text-white pt-5 pb-4">
+
+<!-- Footer Stylesheets -->
+<link rel="stylesheet" href="{% static 'css/bootsrap/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static "fontawesome/css/all.min.css" %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-5 pb-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div class="container">
-    <div class="row">
-      <!-- About Section -->
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase mb-4 font-weight-bold">Betul Abla Foundation</h5>
-        <p>Empowering communities by providing care and support for orphans and underprivileged individuals. Our mission is to create opportunities for a brighter future.</p>
+    <div class="row gy-4">
+
+      <!-- Logo & Overview -->
+      <div class="col-lg-3 col-md-6 text-center text-md-start">
+        <img src="{% static 'images/logo.jpg' %}" alt="Betul Abla Logo" style="max-width: 120px;" class="mb-3">
+        <h5 class="fw-bold mb-2">Betul Abla Organization</h5>
+        <p class="text-white-50">
+          Improving lives through sustainable water solutions and orphan care across Kano State.
+        </p>
       </div>
+
       <!-- Quick Links -->
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase mb-4 font-weight-bold">Quick Links</h5>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
         <ul class="list-unstyled">
-          <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
-          <li><a href="{% url 'orphans' %}" class="text-white">Orphans</a></li>
-          <li><a href="{% url 'boreholes' %}" class="text-white">Boreholes</a></li>
-          <li><a href="{% url 'feeding_projects' %}" class="text-white">Feeding Projects</a></li>
-          <li><a href="{% url 'about' %}" class="text-white">About Us</a></li>
-          <li><a href="{% url 'contact' %}" class="text-white">Contact Us</a></li>
+          <li><a href="{% url 'home' %}" class="text-white-50 text-decoration-none">Home</a></li>
+          <li><a href="{% url 'about' %}" class="text-white-50 text-decoration-none">About Us</a></li>
+          <li><a href="{% url 'home' %}" class="text-white-50 text-decoration-none">Services</a></li>
+          <li><a href="{% url 'contact' %}" class="text-white-50 text-decoration-none">Contact</a></li>
         </ul>
       </div>
+
+      <!-- Our Services -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Our Services</h6>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'orphans' %}" class="text-white-50 text-decoration-none">Orphan Care</a></li>
+          <li><a href="{% url 'boreholes' %}" class="text-white-50 text-decoration-none">Borehole Projects</a></li>
+          <li><a href="{% url 'feeding_projects' %}" class="text-white-50 text-decoration-none">Feeding Projects</a></li>
+        </ul>
+      </div>
+
       <!-- Contact & Social -->
-      <div class="col-md-4 mb-4">
-        <h5 class="text-uppercase mb-4 font-weight-bold">Contact</h5>
-        <p><i class="fas fa-map-marker-alt mr-2"></i>719 Chiranchi Tudu, Kano, Nigeria</p>
-        <p><i class="fas fa-phone mr-2"></i>+234 816 091 7975</p>
-        <p><i class="fas fa-envelope mr-2"></i>info@betulabla.org</p>
-        <div class="mt-3">
-          <a href="https://www.facebook.com/YourPage" target="_blank" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.twitter.com/YourProfile" target="_blank" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/YourProfile" target="_blank" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/YourProfile" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+      <div class="col-lg-3 col-md-6">
+        <h6 class="text-uppercase fw-bold mb-3">Contact Us</h6>
+        <ul class="list-unstyled text-white-50 mb-3">
+          <li><i class="fas fa-map-marker-alt me-2"></i> Kano, Nigeria</li>
+          <li><i class="fas fa-envelope me-2"></i> info@betulabla.org</li>
+          <li><i class="fas fa-phone me-2"></i> +234 000 0000 000</li>
+        </ul>
+        <div>
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
+
     </div>
-    <hr class="bg-secondary">
-    <div class="row align-items-center">
-      <div class="col-md-8 text-center text-md-left">
-        © 2025 Betul Abla Foundation. All rights reserved.
-      </div>
-      <div class="col-md-4 text-center text-md-right">
-        Designed by the Betul Abla Team
-      </div>
+
+    <!-- Footer Bottom -->
+    <div class="text-center mt-4 pt-3 border-top border-secondary">
+      <p class="mb-0 text-white-50">&copy; <span id="currentYear"></span> Betul Abla Organization. All rights reserved.</p>
     </div>
   </div>
 </footer>
+
+<!-- Footer Year Script -->
+<script>
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script>

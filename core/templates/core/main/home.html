@@ -1,184 +1,107 @@
 {% extends "main.html" %}
 {% load static %}
-
 {% block content %}
-<head>
-    <style>
-        /* Custom CSS */
-        .hero-section {
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            background-size: cover;
-            background-position: center;
-        }
+  <!--Coruousel section-->
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <img src="{% static 'images/betool.jpeg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+        <img src="{% static 'images/betool.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+        <img src="{% static 'images/betul.jpeg' %}" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .hero-headline {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
 
-        .hero-subheadline {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .pillar-section {
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .pillar {
-            margin-bottom: 30px;
-        }
-
-        .pillar i, .pillar img {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #007bff; /* Example primary color */
-        }
-
-        .impact-section {
-            padding: 40px 0;
-            background-color: #f8f9fa; /* Light grey background */
-        }
-
-        .impact-stat {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .impact-stat h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #28a745; /* Example success color */
-            margin-bottom: 10px;
-        }
-
-        .get-involved-section {
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .get-involved-item {
-            margin-bottom: 20px;
-        }
-
-        .btn-primary-custom {
-            background-color: #007bff;
-            color: white;
-            border-color: #007bff;
-        }
-
-        .btn-primary-custom:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-    </style>
-</head>
-
-    <main>
-        <section class="hero-section" style="background-image: url('path/to/your/hero-image.jpg');">
-            <div class="hero-overlay">
-                <h1 class="hero-headline">Empowering Communities, Transforming Lives</h1>
-                <p class="hero-subheadline">Supporting orphans, developing borehole projects, and running feeding initiatives for a thriving community.</p>
-                <a href="#" class="btn btn-primary btn-lg btn-primary-custom">Donate Now</a>
+    <!-- Hero Section -->
+    <section class="bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Betul Abla Organization</h1>
+            <p class="fs-5 mb-5">Providing clean water and care for orphans across Kano state</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="services.html" class="btn btn-light btn-lg">Our Services</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg">Contact Us</a>
             </div>
-        </section>
-        <section class="pillar-section container">
-            <div class="row">
-                <div class="col-md-4 pillar">
-                    <i class="fas fa-heart fa-3x"></i> <h3>Supporting Orphans</h3>
-                    <p>Providing shelter, education, and care to orphaned children, giving them a chance for a brighter future.</p>
-                    <a href="#" class="btn btn-link">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h2 class="display-4 fw-bold text-primary">250+</h2>
+                    <p class="text-muted">Boreholes Installed</p>
                 </div>
-                <div class="col-md-4 pillar">
-                    <i class="fas fa-tint fa-3x"></i> <h3>Providing Clean Water</h3>
-                    <p>Developing sustainable borehole projects to ensure access to clean and safe water for communities.</p>
-                    <a href="#" class="btn btn-link">Learn More</a>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h2 class="display-4 fw-bold text-primary">500+</h2>
+                    <p class="text-muted">Orphans Supported</p>
                 </div>
-                <div class="col-md-4 pillar">
-                    <i class="fas fa-utensils fa-3x"></i> <h3>Nourishing Communities</h3>
-                    <p>Running feeding initiatives to combat hunger and ensure every community member has access to nutritious meals.</p>
-                    <a href="#" class="btn btn-link">Learn More</a>
+                <div class="col-md-4">
+                    <h2 class="display-4 fw-bold text-primary">44</h2>
+                    <p class="text-muted">Local Governments Reached</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="impact-section container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 impact-stat">
-                        <h2>500+</h2>
-                        <p class="lead">Orphans Provided with Shelter and Education</p>
-                        <img src="path/to/your/orphans-image.jpg" alt="Orphans" class="img-fluid rounded">
-                    </div>
-                    <div class="col-md-6 impact-stat">
-                        <h2>10</h2>
-                        <p class="lead">New Boreholes Built, Serving Thousands</p>
-                        <img src="{% static 'images/photo.jpg' %}" alt="Borehole" class="img-fluid rounded">
-                        
+    <!-- Services Preview -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Orphan Care</h5>
+                            <p class="card-text mb-4">Supporting orphans with education, healthcare, and basic needs across Kano state.</p>
+                            <a href="services-orphans.html" class="btn btn-outline-primary w-100">Learn More</a>
+                        </div>
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-6 impact-stat">
-                        <h2>Thousands</h2>
-                        <p class="lead">Meals Served Monthly to Combat Hunger</p>
-                        <img src="path/to/your/feeding-image.jpg" alt="Feeding Initiative" class="img-fluid rounded">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Borehole Projects</h5>
+                            <p class="card-text mb-4">Clean water access across 44 local governments in Kano state.</p>
+                            <a href="services-boreholes.html" class="btn btn-outline-primary w-100">Learn More</a>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card p-3">
-                            <blockquote class="blockquote">
-                                <p class="mb-0">"Before the borehole was built, we had to walk miles for water. Now, our children can go to school, and we have more time for our livelihoods."</p>
-                                <footer class="blockquote-footer">A Community Member <cite title="Source Title"> উপকৃতভোগী</cite></footer>
-                            </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Feeding Projects</h5>
+                            <p class="card-text mb-4">Ramadan and Eid feeding programs for the needy in communities.</p>
+                            <a href="services-feeding-projects.html" class="btn btn-outline-primary w-100">Learn More</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="get-involved-section container">
-            <h2>Get Involved</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-3 get-involved-item">
-                    <a href="#" class="btn btn-primary btn-lg btn-block btn-primary-custom">Donate Now</a>
-                    <p class="mt-2">Support our vital work and help us reach more communities.</p>
-                </div>
-                <div class="col-md-3 get-involved-item">
-                    <a href="#" class="btn btn-outline-primary btn-lg btn-block">Volunteer With Us</a>
-                    <p class="mt-2">Offer your time and skills to make a direct impact.</p>
-                </div>
-                <div class="col-md-3 get-involved-item">
-                    <a href="#" class="btn btn-outline-primary btn-lg btn-block">Partner With Us</a>
-                    <p class="mt-2">Explore opportunities for collaboration and shared impact.</p>
-                </div>
-            </div>
-            <div class="mt-4">
-                <h4>Follow Us</h4>
-                <a href="#" class="mr-3"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="#" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
-                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-            </div>
-        </section>
-    </main>
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Get Involved</h2>
+            <p class="fs-5 mb-4">Help us continue our mission to provide clean water and care for orphans across Kano state.</p>
+            <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
+        </div>
+    </section>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 {% endblock content %}
